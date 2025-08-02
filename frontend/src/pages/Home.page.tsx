@@ -2,8 +2,23 @@ import { Container, Flex, TableOfContents } from '@mantine/core';
 import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
 import { Welcome } from '../components/Welcome/Welcome';
 import { useState } from 'react';
-import { IconListDetails, IconUserCircle } from '@tabler/icons-react';
+import { Icon, IconLetterZ, IconListDetails, IconUserCircle } from '@tabler/icons-react';
 import { Box, NavLink } from '@mantine/core';
+import React from 'react';
+
+const navBarProps = (icon: Icon, label: string) => {
+  return {
+    styles:{
+      root: {},
+      section: {marginRight: "7px"},
+      label: { fontSize: 18 }
+    },
+    href:"#required-for-focus",
+    key:label,
+    label:label,
+    leftSection: React.createElement(icon, {size: 24, stroke: 2})
+    }
+}
 
 const topNavData = [
   { icon: IconListDetails, label: 'Expense Tracker' },
@@ -18,41 +33,39 @@ export function HomePage() {
 
   const topItems = topNavData.map((item, index) => (
     <NavLink
-      styles={{
-        root: {},
-        section: {marginRight: "7px"},
-        label: { fontSize: 18 }
-      }}
-      href="#required-for-focus"
-      key={item.label}
+      {...navBarProps(IconListDetails, "Expense Tracker")}
       active={index === active}
-      label={item.label}
-      leftSection={<item.icon size={24} stroke={2} />}
       onClick={() => setActive(index)}
     />
   ));
 
   const bottomItems = bottomNavData.map((item, index) => (
     <NavLink
-      styles={{
-        root: {},
-        section: {marginRight: "7px"},
-        label: { fontSize: 18 }
-      }}
-      href="#required-for-focus"
-      key={item.label}
+      {...navBarProps(IconUserCircle, "Profile")}
       active={index === active}
-      label={item.label}
-      leftSection={<item.icon size={24} stroke={2} />}
       onClick={() => setActive(index)}
     />
   ));
 
   return (
     <>
-      <Flex styles={{ root: {height: "100%", width: "300px", alignContent: "start"}}} direction="column" justify="space-between">
-        <Box >{topItems}</Box>
-        <Box>{bottomItems}</Box>
+      <Flex styles={{ root: {height: "100%"}}} direction="column">
+        <NavLink
+          styles={{
+            label: { textDecoration: "bold", fontSize: 22}
+          }}
+          href="#required-for-focus"
+          key={"title-link"}
+          active={false}
+          label={"Zentry"}
+          leftSection={<IconLetterZ size={28} stroke={4} />}
+          onClick={() => {}}
+        />
+        <Box h="xl"/>
+        <Flex styles={{ root: {width: "300px", alignContent: "start", flexGrow: 1}}} direction="column" justify="space-between">
+          <Box>{topItems}</Box>
+          <Box>{bottomItems}</Box>
+        </Flex>
       </Flex>
     </>
   );

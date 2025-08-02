@@ -50,9 +50,9 @@ export function HomePage() {
 
   return (
     <>
-      <Flex direction="column" align="start" justify="space-between">
-        <Container>{topItems}</Container>
-        <Container>{bottomItems}</Container>
+      <Flex styles={{ root: {height: "100%", width: "300px", alignContent: "start"}}} direction="column" justify="space-between">
+        <Box >{topItems}</Box>
+        <Box>{bottomItems}</Box>
       </Flex>
     </>
   );

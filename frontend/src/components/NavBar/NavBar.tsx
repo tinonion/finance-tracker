@@ -52,7 +52,8 @@ export function NavBar() {
           <g transform="translate(5, 0)">
             <path d="M 20 5 L 10 25 L 18 25 L 8 40 L 18 20 L 10 20 Z" 
                   fill="#FF6B35" 
-                  stroke="none"/>
+                  stroke="#FF6B35" 
+                  stroke-width="3"/>
           </g>
   
           <text x="40" y="25" 

@@ -47,17 +47,31 @@ export function NavBar() {
 
   return (
       <Flex className={classes.navbar}>
-          <NavLink
-            styles={{
-              label: { textDecoration: "bold", fontSize: 16}
-            }}
-            href="#required-for-focus"
-            key={"title-link"}
-            active={false}
-            label={"Zentry"}
-            leftSection={<IconLetterZ size={22} stroke={4} />}
-            onClick={() => {}}
-          />
+        <svg style={{marginTop: "10px"}} width="180" height="60" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+  
+          <g transform="translate(5, 0)">
+            <path d="M 20 5 L 10 25 L 18 25 L 8 40 L 18 20 L 10 20 Z" 
+                  fill="#FF6B35" 
+                  stroke="none"/>
+          </g>
+  
+          <text x="40" y="25" 
+                font-family="system-ui, -apple-system, sans-serif" 
+                font-size="24" 
+                font-weight="900" 
+                fill="#FF6B35">
+            Zentry
+          </text>
+  
+          <text x="40" y="40" 
+                font-family="system-ui, -apple-system, sans-serif" 
+                font-size="10" 
+                font-weight="600" 
+                fill="#CC5500" 
+                letter-spacing="1px">
+            Finance Tracker
+          </text>
+        </svg>
         <div className={classes.sectionBorder} />
         <Flex styles={{ root: {alignContent: "start", flexGrow: 1}}} direction="column" justify="space-between">
           <div className={classes.section}>
